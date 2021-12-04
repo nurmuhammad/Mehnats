@@ -2,7 +2,33 @@
 <project version="4">
   <component name="JmixDataStoreSettingsManager">
     <moduleSettings>
-      <entry key="com.company.jMehnat.main">
+      <entry key="Mehnats.main">
+        <ModuleSettings>
+          <option name="dataStoreOptions">
+            <map>
+              <entry key="main">
+                <value>
+                  <DataStoreSettings />
+                </value>
+              </entry>
+            </map>
+          </option>
+        </ModuleSettings>
+      </entry>
+      <entry key="com.company.mehnats.main">
+        <ModuleSettings>
+          <option name="dataStoreOptions">
+            <map>
+              <entry key="main">
+                <value>
+                  <DataStoreSettings />
+                </value>
+              </entry>
+            </map>
+          </option>
+        </ModuleSettings>
+      </entry>
+      <entry key="mehnats.main">
         <ModuleSettings>
           <option name="dataStoreOptions">
             <map>

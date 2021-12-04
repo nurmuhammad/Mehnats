@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="mehnats">
+        <createTable tableName="MEHNATS_DEGREE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MEHNATS_DEGREE"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="mehnats">
+        <createTable tableName="MEHNATS_POSITION">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MEHNATS_POSITION"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="mehnats">
+        <createTable tableName="MEHNATS_REGION">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MEHNATS_REGION"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="mehnats">
+        <createTable tableName="MEHNATS_VACANCY">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MEHNATS_VACANCY"/>
+            </column>
+            <column name="REGION_ID" type="UUID"/>
+            <column name="POSITION_ID" type="UUID"/>
+            <column name="DEGREE_ID" type="UUID"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="mehnats">
+        <addForeignKeyConstraint baseColumnNames="DEGREE_ID" baseTableName="MEHNATS_VACANCY"
+                                 constraintName="FK_MEHNATS_VACANCY_ON_DEGREE" referencedColumnNames="ID"
+                                 referencedTableName="MEHNATS_DEGREE"/>
+
+        <createIndex indexName="IDX_VACANCY_DEGREE_ID" tableName="MEHNATS_VACANCY">
+            <column name="DEGREE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="6" author="mehnats">
+        <addForeignKeyConstraint baseColumnNames="POSITION_ID" baseTableName="MEHNATS_VACANCY"
+                                 constraintName="FK_MEHNATS_VACANCY_ON_POSITION" referencedColumnNames="ID"
+                                 referencedTableName="MEHNATS_POSITION"/>
+
+        <createIndex indexName="IDX_VACANCY_POSITION_ID" tableName="MEHNATS_VACANCY">
+            <column name="POSITION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="7" author="mehnats">
+        <addForeignKeyConstraint baseColumnNames="REGION_ID" baseTableName="MEHNATS_VACANCY"
+                                 constraintName="FK_MEHNATS_VACANCY_ON_REGION" referencedColumnNames="ID"
+                                 referencedTableName="MEHNATS_REGION"/>
+
+        <createIndex indexName="IDX_VACANCY_REGION_ID" tableName="MEHNATS_VACANCY">
+            <column name="REGION_ID"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
