@@ -1,0 +1,8 @@
+@import "mhover-defaults";
+@import "addons";
+@import "mhover";
+
+.mhover {
+  @include addons;
+  @include mhover;
+}

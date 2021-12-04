@@ -1,8 +1,11 @@
 package com.smartbox.jmehnat.entity;
 
+import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.entity.annotation.OnDelete;
+import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import org.springframework.data.annotation.CreatedBy;
@@ -12,12 +15,13 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "JMEHNAT_REGION")
-@Entity(name = "jmehnat_Region")
-public class Region {
+@Table(name = "JMEHNAT_PROVINCE")
+@Entity(name = "jmehnat_Province")
+public class Province {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
     @Id
@@ -26,6 +30,11 @@ public class Region {
     @InstanceName
     @Column(name = "NAME")
     private String name;
+
+    @OnDelete(DeletePolicy.CASCADE)
+    @Composition
+    @OneToMany(mappedBy = "province")
+    private List<Region> region;
 
     @Column(name = "VERSION", nullable = false)
     @Version
@@ -57,16 +66,13 @@ public class Region {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
-    @JoinColumn(name = "PROVINCE_ID", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Province province;
 
-    public Province getProvince() {
-        return province;
+    public List<Region> getRegion() {
+        return region;
     }
 
-    public void setProvince(Province province) {
-        this.province = province;
+    public void setRegion(List<Region> region) {
+        this.region = region;
     }
 
     public String getName() {

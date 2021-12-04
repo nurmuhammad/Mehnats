@@ -3,7 +3,6 @@ package com.smartbox.jmehnat.entity;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
-import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,17 +14,22 @@ import java.util.Date;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "JMEHNAT_REGION")
-@Entity(name = "jmehnat_Region")
-public class Region {
+@Table(name = "JMEHNAT_DOWNLOAD", indexes = {
+        @Index(name = "IDX_DOWNLOAD_PROVINCE_ID", columnList = "PROVINCE_ID")
+})
+@Entity(name = "jmehnat_Download")
+public class Download {
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
     @Id
     private UUID id;
 
-    @InstanceName
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "URL")
+    private String url;
+
+    @JoinColumn(name = "PROVINCE_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Province province;
 
     @Column(name = "VERSION", nullable = false)
     @Version
@@ -57,9 +61,6 @@ public class Region {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
-    @JoinColumn(name = "PROVINCE_ID", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Province province;
 
     public Province getProvince() {
         return province;
@@ -69,12 +70,12 @@ public class Region {
         this.province = province;
     }
 
-    public String getName() {
-        return name;
+    public String getUrl() {
+        return url;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Date getDeletedDate() {
