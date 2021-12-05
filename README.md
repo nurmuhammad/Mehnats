@@ -14,6 +14,10 @@
 ![Login screen](https://raw.githubusercontent.com/nurmuhammad/Mehnats/main/images/monitoring.png)
 
 
+## Open data (data.gov.uz)
+![data-gov-uz](https://raw.githubusercontent.com/nurmuhammad/Mehnats/main/images/data-gov-uz.png)
+
+
 ## Телеграм бот для заолнения 
 
 [@Mehnats_Bot](https://t.me/mehnats_bot)
