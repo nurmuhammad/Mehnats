@@ -12,6 +12,7 @@
               caption="msg://com.smartbox.mehnats.entity.position/positionBrowse.menu"/>
         <item screen="mehnats_Region.browse" caption="msg://com.smartbox.mehnats.screen.region/regionBrowse.menu"/>
         <item screen="mehnats_Bot.browse" caption="msg://com.smartbox.mehnats.screen.bot/botBrowse.menu"/>
+        <item screen="mehnats_Degree.browse" caption="msg://com.smartbox.mehnats.screen.degree/degreeBrowse.menu"/>
     </menu>
 
 </menu-config>
