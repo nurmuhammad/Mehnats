@@ -4,6 +4,13 @@
     <menu id="application" caption="msg://com.smartbox.mehnats/menu.application" insertBefore="administration">
         <item screen="mehnats_User.browse" caption="msg://com.smartbox.mehnats.screen.user/UserBrowse.caption"/>
         <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="mehnats_Download.browse"
+              caption="msg://com.smartbox.mehnats.entity.download/downloadBrowse.menu"/>
+        <item screen="mehnats_Province.browse"
+              caption="msg://com.smartbox.mehnats.entity.province/provinceBrowse.menu"/>
+        <item screen="mehnats_Position.browse"
+              caption="msg://com.smartbox.mehnats.entity.position/positionBrowse.menu"/>
+        <item screen="mehnats_Region.browse" caption="msg://com.smartbox.mehnats.screen.region/regionBrowse.menu"/>
     </menu>
 
 </menu-config>
