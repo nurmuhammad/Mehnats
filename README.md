@@ -22,9 +22,9 @@
 ![Login screen](https://raw.githubusercontent.com/nurmuhammad/Mehnats/main/images/tg-bot.png)
 
 
+## Наша команда:
 ![Login screen](https://raw.githubusercontent.com/nurmuhammad/Mehnats/main/images/team.png)
 
-## Наша команда:
 1. [Аброрбек Шарипов](https://t.me/muhseen)
 2. [Нурмухаммад Абдурашидов](https://t.me/smartbox_es)
 3. [Хусниддин Набиев](https://t.me/kh_2303)
